@@ -41,8 +41,8 @@ while True:
             finger_to_thumb_length = math.hypot((fingers_x[0] - thumb_x), (fingers_y[0] - thumb_y))
             # Hand range 10 - 260
             # Stick range 90 - 260
-            stick_range = np.interp(finger_to_thumb_length, [20, 260], [90, 260])
-            # print(stick_range)
+            stick_range = np.interp(finger_to_thumb_length, [20, 260], [90, 270])
+            print(stick_range)
             if finger_to_thumb_length < 40:
                 cv2.circle(img, (cx, cy),15, (0, 255, 255), cv2.FILLED)  # Draw a point at center of line
 
