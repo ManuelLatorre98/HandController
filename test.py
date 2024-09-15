@@ -1,8 +1,8 @@
 import cv2
 import mediapipe as mp
 import time
-import HandTracking as ht
-import ShowImage as shi
+import HandController.handTracking as ht
+import HandController.showImage as shi
 import math
 import numpy as np
 
