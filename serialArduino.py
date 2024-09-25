@@ -4,10 +4,10 @@ import time
 class SerialArduino():
     def sendBytes(self, data):
       arduino = serial.Serial('/dev/ttyUSB0', 9600)
-      print(arduino.name)
-      time.sleep(2) # Espera a que la conexion se establezca
+      #print(arduino.name)
+      #time.sleep(0.1) # Espera a que la conexion se establezca
       arduino.write(bytes(data)) #Solo puedo enviar hasta 256 valores
-      time.sleep(1)
+      #time.sleep(0.1)
       arduino.close()
 
 if __name__ == "__main__":
