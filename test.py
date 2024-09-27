@@ -7,7 +7,7 @@ import math
 import numpy as np
 from serialArduino import SerialArduino
 hands_detector = ht.HandsDetector()
-capture = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(3)
 
 serial = SerialArduino()
 
@@ -44,9 +44,8 @@ while True:
             finger_to_thumb_length = math.hypot((fingers_x[0] - thumb_x), (fingers_y[0] - thumb_y))
             # Hand range 10 - 260
             # Stick range 90 - 260
-            stick_range = np.interp(finger_to_thumb_length, [20, 260], [0, 180])
-            print 
-            result = int(np.floor(stick_range/10)*10)
+            stick_range = np.interp(finger_to_thumb_length, [20, 260], [0, 180]) 
+            result = int(np.floor(stick_range/5)*5)
             print(result)
             if time.time() - last_send_time > interval:
                 serial.sendBytes([result])  # Enviar los datos
